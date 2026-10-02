@@ -452,146 +452,110 @@ body {
 }
 
 
-/* =====================================================
-   PAGE 3
-===================================================== */
+/* ---------- PAGE 3 ---------- */
 
 .page3 {
-    background:
-        linear-gradient(
-            135deg,
-            #f9d1dc,
-            #ffe7eb
-        );
+    display: none;
 }
 
+.page3.active {
+    display: block;
+}
 
-/* Photos */
-
-.photo-strip {
+.page3 .photo-strip {
     position: absolute;
 
-    left: 6%;
+    left: 1%;
+    top: 9%;
 
-    top: 10%;
-
-    width: 27%;
-
-    height: 78%;
+    width: 32%;
+    height: 76%;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: space-around;
-
     align-items: center;
 
-    z-index: 3;
+    z-index: 5;
 }
 
-.photo-strip img {
-    width: 125px;
+.page3 .photo-strip img {
+    display: block;
 
-    height: 115px;
+    width: 82px;
+    height: 78px;
+
+    padding: 4px;
+    padding-bottom: 12px;
 
     object-fit: cover;
 
-    background: #fff;
-
-    padding: 6px;
-
-    padding-bottom: 18px;
+    background: white;
 
     box-shadow:
-        0 7px 18px
+        0 5px 12px
         rgba(70,25,40,0.18);
 }
 
-.photo-strip img:nth-child(1) {
-    transform: rotate(-8deg);
-}
-
-.photo-strip img:nth-child(2) {
-    transform: rotate(5deg);
-}
-
-.photo-strip img:nth-child(3) {
-    transform: rotate(-4deg);
-}
-
-.photo-strip img:nth-child(4) {
-    transform: rotate(7deg);
-}
-
-
-/* Note */
-
-.note {
+.page3 .note {
     position: absolute;
 
-    left: 37%;
+    left: 34%;
+    top: 10%;
 
-    top: 13%;
+    width: 62%;
+    height: 76%;
 
-    width: 55%;
+    padding: 12px;
 
-    height: 73%;
+    overflow: hidden;
 
-    padding: 25px;
-
-    background:
-        rgba(255,250,243,0.75);
-
-    box-shadow:
-        0 10px 25px
-        rgba(70,30,40,0.12);
-
-    transform: rotate(1deg);
-
-    z-index: 2;
+    z-index: 4;
 }
 
-.note h2 {
-    font-family:
-        "Brush Script MT",
-        "Segoe Print",
-        cursive;
+.page3 .note h2 {
+    font-size: 26px;
 
-    font-size: clamp(
-        35px,
-        5vw,
-        65px
-    );
+    line-height: 0.95;
 
-    line-height: 0.9;
-
-    color: #8b293d;
-
-    margin-bottom: 22px;
+    margin-bottom: 11px;
 }
 
-.note p {
-    font-family:
-        "Comic Sans MS",
-        "Trebuchet MS",
-        cursive;
+.page3 .note p {
+    font-size: 10.5px;
 
-    font-style: italic;
+    line-height: 1.35;
 
-    font-size: clamp(
-        14px,
-        1.6vw,
-        20px
-    );
-
-    line-height: 1.5;
-
-    margin-bottom: 15px;
-
-    color: #703040;
+    margin-bottom: 8px;
 }
 
+/* PAGE 3 NEXT BUTTON */
+.page3 .next {
+    display: block !important;
+
+    position: fixed !important;
+
+    right: 18px !important;
+    bottom: 18px !important;
+
+    z-index: 2147483647 !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    pointer-events: auto !important;
+
+    background: rgba(255,255,255,0.7) !important;
+
+    padding: 10px 16px !important;
+
+    border-radius: 20px !important;
+
+    color: #43202a !important;
+
+    font-size: 16px !important;
+}
 
 /* =====================================================
    PAGE 4
