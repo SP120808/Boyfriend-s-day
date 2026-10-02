@@ -1008,26 +1008,75 @@ body {
         width: 100%;
         object-fit: contain;
         object-position: center;
-.next {
-    right: 5%;
-    bottom: 3%;
-    font-size: 16px;
-    z-index: 100;
-}
-
-.restart {
-    bottom: 3%;
-    z-index: 100;
-}
-.page {
-    overflow: hidden;
-}
-
-.next {
-    position: absolute;
-}
     }
 
+    .photo-strip {
+        width: 30%;
+        left: 3%;
+    }
+
+    .photo-strip img {
+        width: 80px;
+        height: 75px;
+    }
+
+    .note {
+        left: 32%;
+        width: 63%;
+        padding: 15px;
+    }
+
+    .note h2 {
+        font-size: 34px;
+    }
+
+    .note p {
+        font-size: 12px;
+    }
+
+    .memory-grid .memory {
+        width: 140px;
+    }
+
+    .memory img {
+        height: 105px;
+    }
+
+    .memory-title {
+        width: 180px;
+        font-size: 38px;
+    }
+
+    .envelope {
+        width: 330px;
+        height: 230px;
+    }
+
+    /* MAKE NEXT BUTTON ALWAYS VISIBLE */
+    .next {
+        display: block !important;
+        position: absolute !important;
+        right: 20px !important;
+        bottom: 20px !important;
+        z-index: 9999 !important;
+
+        font-size: 18px !important;
+        color: #43202a !important;
+
+        background: rgba(255, 255, 255, 0.35) !important;
+        padding: 10px 14px !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .restart {
+        display: block !important;
+        position: absolute !important;
+        bottom: 20px !important;
+        z-index: 9999 !important;
+    }
+}
    /* =========================
    PAGE 3 - PHONE
 ========================= */
