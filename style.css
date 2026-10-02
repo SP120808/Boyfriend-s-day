@@ -1,0 +1,1107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #21151b;
+    color: #632b3a;
+}
+
+
+/* =========================
+   MAIN BOOK
+========================= */
+
+.book {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,0.55) 0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(255,255,255,0.5) 0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 60% 80%,
+            rgba(255,255,255,0.45) 0 2px,
+            transparent 3px
+        ),
+
+        linear-gradient(
+            135deg,
+            #f7c8d7,
+            #ffdce6,
+            #f4c0d2
+        );
+}
+
+.page.active {
+    display: block;
+    animation: pageAppear 0.6s ease;
+}
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================
+   LITTLE STARS
+========================= */
+
+.stars {
+    position: absolute;
+
+    top: 8%;
+    left: 8%;
+
+    font-size: 30px;
+
+    letter-spacing: 25px;
+
+    color: #fff4f7;
+
+    transform: rotate(-8deg);
+
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: rotate(-8deg) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(-8deg) scale(1.08);
+    }
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next {
+    position: absolute;
+
+    right: 5%;
+    bottom: 3%;
+
+    border: none;
+    background: transparent;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #43202a;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    z-index: 999;
+}
+
+.next:hover {
+    transform: translateX(7px);
+}
+
+
+/* =========================
+   PAGE 1
+========================= */
+
+.page1 {
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            #ffdbe7 0%,
+            #f7c4d6 50%,
+            #efb4ca 100%
+        );
+}
+
+
+/* yellow star */
+
+.yellow-star {
+
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(8deg);
+
+    font-size: 310px;
+
+    color: #f4d957;
+
+    line-height: 1;
+
+    text-shadow:
+        0 8px 0 rgba(190,130,80,0.08);
+
+    z-index: 1;
+
+    animation: starFloat 3s ease-in-out infinite;
+}
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            rotate(8deg);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -54%)
+            rotate(11deg);
+    }
+}
+
+
+/* page 1 title */
+
+.cover-text {
+
+    position: absolute;
+
+    left: 50%;
+    top: 49%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 3;
+
+    color: #b52f65;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        cursive;
+
+    text-shadow:
+        2px 3px #ffeaf1;
+
+    animation: titlePop 1s ease;
+}
+
+@keyframes titlePop {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -45%)
+            scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+.cover-text h1 {
+
+    font-size: clamp(
+        48px,
+        8vw,
+        90px
+    );
+
+    line-height: 0.82;
+
+    font-weight: 900;
+}
+
+
+/* =========================
+   PAGE 2
+========================= */
+
+.page2 {
+    background:
+        linear-gradient(
+            135deg,
+            #f7ccd8,
+            #ffe2e8
+        );
+}
+
+
+.best-title {
+
+    position: absolute;
+
+    top: 12%;
+    left: 13%;
+
+    z-index: 5;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive;
+
+    font-size: clamp(
+        45px,
+        6vw,
+        75px
+    );
+
+    line-height: 0.8;
+
+    color: #762735;
+
+    transform: rotate(-5deg);
+}
+
+
+/* paper */
+
+.paper {
+
+    position: absolute;
+
+    width: min(
+        650px,
+        72vw
+    );
+
+    height: min(
+        520px,
+        72vh
+    );
+
+    left: 50%;
+    top: 53%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-3deg);
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.6),
+            rgba(255,248,238,0.9)
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(80,30,45,0.18);
+
+    z-index: 2;
+}
+
+
+/* little inner border */
+
+.paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border:
+        1px dashed
+        #d3a9aa;
+
+    pointer-events: none;
+}
+
+
+/* polaroid */
+
+.polaroid {
+
+    position: absolute;
+
+    width: min(
+        330px,
+        46vw
+    );
+
+    left: 50%;
+    top: 47%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(4deg);
+
+    background: white;
+
+    padding:
+        12px
+        12px
+        42px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(50,20,30,0.25);
+
+    z-index: 5;
+}
+
+.polaroid img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 250px;
+
+    /*
+       contain prevents the top of the photo
+       from being cut off.
+    */
+
+    object-fit: contain;
+
+    background: #e9c2ce;
+}
+
+
+.hearts {
+
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #c83e5e;
+
+    letter-spacing: 7px;
+
+    font-size: 17px;
+}
+
+
+.paper-writing {
+
+    position: absolute;
+
+    right: 10%;
+
+    bottom: 13%;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive;
+
+    font-size: 28px;
+
+    color: #8c4050;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================
+   PAGE 3
+========================= */
+
+.page3 {
+    background:
+        linear-gradient(
+            135deg,
+            #f9d1dc,
+            #ffe7eb
+        );
+}
+
+
+.photo-strip {
+    position: absolute;
+    left: 6%;
+    top: 10%;
+    width: 27%;
+    height: 78%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.photo-strip img {
+    width: 125px;
+    height: 115px;
+
+    object-fit: cover;
+
+    background: #fff;
+
+    padding: 6px;
+    padding-bottom: 18px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(70,25,40,0.18);
+}
+
+.photo-strip img:nth-child(1) {
+    transform: rotate(-8deg);
+}
+
+.photo-strip img:nth-child(2) {
+    transform: rotate(5deg);
+}
+
+.photo-strip img:nth-child(3) {
+    transform: rotate(-4deg);
+}
+
+.photo-strip img:nth-child(4) {
+    transform: rotate(7deg);
+}/* note */
+
+.note {
+
+    position: absolute;
+
+    left: 37%;
+
+    top: 13%;
+
+    width: 55%;
+
+    height: 73%;
+
+    padding: 25px;
+
+    background:
+        rgba(255,250,243,0.75);
+
+    box-shadow:
+        0 10px 25px
+        rgba(70,30,40,0.12);
+
+    transform: rotate(1deg);
+}
+
+
+.note h2 {
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive;
+
+    font-size: clamp(
+        35px,
+        5vw,
+        65px
+    );
+
+    line-height: 0.9;
+
+    color: #8b293d;
+
+    margin-bottom: 22px;
+}
+
+
+.note p {
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        cursive;
+
+    font-style: italic;
+
+    font-size: clamp(
+        14px,
+        1.6vw,
+        20px
+    );
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+
+    color: #703040;
+}
+
+
+/* =========================
+   PAGE 4
+========================= */
+
+.page4 {
+    background:
+        linear-gradient(
+            135deg,
+            #f6c8d6,
+            #ffe3e8
+        );
+}
+
+
+.memory-title {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 300px;
+
+    text-align: center;
+
+    font-family:
+        "Comic Sans MS",
+        cursive;
+
+    font-size: clamp(
+        38px,
+        5vw,
+        65px
+    );
+
+    line-height: 0.9;
+
+    color: #783142;
+
+    z-index: 2;
+}
+
+
+.memory-grid .memory {
+
+    position: absolute;
+
+    width: min(
+        230px,
+        25vw
+    );
+
+    background: white;
+
+    padding:
+        8px
+        8px
+        28px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(60,25,35,0.22);
+
+    transition:
+        transform 0.3s ease;
+
+    z-index: 3;
+}
+
+
+.memory img {
+
+    width: 100%;
+
+    height: 170px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #e9c2ce;
+}
+
+
+.memory:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.07) !important;
+
+    z-index: 10;
+}
+
+
+.photo-a {
+    left: 8%;
+    top: 12%;
+    transform: rotate(-9deg);
+}
+
+.photo-b {
+    right: 8%;
+    top: 12%;
+    transform: rotate(8deg);
+}
+
+.photo-c {
+    left: 11%;
+    bottom: 11%;
+    transform: rotate(7deg);
+}
+
+.photo-d {
+    right: 11%;
+    bottom: 11%;
+    transform: rotate(-8deg);
+}
+
+.photo-e {
+
+    left: 50%;
+    bottom: 5%;
+
+    transform:
+        translateX(-50%)
+        rotate(3deg);
+}
+
+
+.memory-text {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 8%;
+
+    transform: translateX(-50%);
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive;
+
+    font-size: 22px;
+
+    color: #803447;
+
+    z-index: 8;
+}
+
+
+/* =========================
+   PAGE 5
+========================= */
+
+.page5 {
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #ffe5eb,
+            #f6bfd1
+        );
+}
+
+
+/* envelope */
+
+.envelope {
+
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(
+        450px,
+        75vw
+    );
+
+    height: 300px;
+
+    background: #e89bb0;
+
+    box-shadow:
+        0 15px 35px
+        rgba(70,25,40,0.25);
+
+    cursor: pointer;
+
+    z-index: 4;
+}
+
+
+/* envelope flap */
+
+.envelope-flap {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 62%;
+
+    background: #f2afc1;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top;
+
+    transition:
+        transform 0.9s ease;
+
+    z-index: 7;
+}
+
+
+.envelope.open .envelope-flap {
+
+    transform:
+        rotateX(180deg);
+}
+
+
+/* envelope letter */
+
+.envelope-letter {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 8;
+
+    color: #702b3b;
+}
+
+
+.envelope-letter h3 {
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Print",
+        cursive;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+
+.envelope-letter p {
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+/* coupon */
+
+.coupon {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -25%)
+        scale(0.7)
+        rotate(-4deg);
+
+    width: min(
+        380px,
+        70vw
+    );
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #fff4e9;
+
+    border:
+        4px dashed
+        #713844;
+
+    box-shadow:
+        0 10px 25px
+        rgba(60,25,35,0.2);
+
+    opacity: 0;
+
+    transition:
+        0.9s ease 0.3s;
+
+    z-index: 3;
+}
+
+
+.coupon p:first-child {
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.coupon h2 {
+
+    margin: 18px 0;
+
+    font-family:
+        "Comic Sans MS",
+        cursive;
+
+    font-size: clamp(
+        30px,
+        5vw,
+        48px
+    );
+
+    line-height: 0.9;
+
+    color: #b42e52;
+}
+
+
+.envelope.open + .coupon {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -145%)
+        scale(1)
+        rotate(-4deg);
+
+    z-index: 9;
+}
+
+
+/* restart */
+
+.restart {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 7%;
+
+    transform:
+        translateX(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #542732;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .yellow-star {
+        font-size: 230px;
+    }
+
+    .cover-text h1 {
+        font-size: 55px;
+    }
+
+    .best-title {
+        left: 7%;
+        top: 8%;
+        font-size: 48px;
+    }
+
+    .polaroid {
+        width: 230px;
+    }
+
+    .polaroid img {
+        height: 180px;
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+.next {
+    right: 5%;
+    bottom: 3%;
+    font-size: 16px;
+    z-index: 100;
+}
+
+.restart {
+    bottom: 3%;
+    z-index: 100;
+}
+.page {
+    overflow: hidden;
+}
+
+.next {
+    position: absolute;
+}
+    }
+
+   /* =========================
+   PAGE 3 - PHONE
+========================= */
+
+.photo-strip {
+    position: absolute;
+
+    left: 2%;
+    top: 8%;
+
+    width: 34%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.photo-strip img {
+    width: 95px;
+    height: 90px;
+
+    object-fit: cover;
+
+    padding: 5px;
+    padding-bottom: 14px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 12px
+        rgba(70,25,40,0.18);
+}
+
+.note {
+    position: absolute;
+
+    left: 37%;
+    top: 10%;
+
+    width: 59%;
+    height: 76%;
+
+    padding: 12px;
+}
+
+.note h2 {
+    font-size: 28px;
+    line-height: 0.95;
+    margin-bottom: 14px;
+}
+
+.note p {
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+    .memory-grid .memory {
+        width: 140px;
+    }
+
+    .memory img {
+        height: 105px;
+    }
+
+    .memory-title {
+        width: 180px;
+        font-size: 38px;
+    }
+
+    .envelope {
+        width: 330px;
+        height: 230px;
+    }
+}
