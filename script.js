@@ -1,9 +1,35 @@
 let currentPage = 0;
+let pages = [];
 
-const pages = document.querySelectorAll(".page");
+document.addEventListener("DOMContentLoaded", function () {
+
+    pages = document.querySelectorAll(".page");
+
+    // Make sure only Page 1 is active
+    pages.forEach(function (page) {
+        page.classList.remove("active");
+    });
+
+    if (pages.length > 0) {
+        pages[0].classList.add("active");
+    }
+
+    // Make every NEXT button work
+    const nextButtons = document.querySelectorAll(".next");
+
+    nextButtons.forEach(function (button) {
+        button.addEventListener("click", nextPage);
+    });
+
+});
 
 
-function nextPage() {
+function nextPage(event) {
+
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
 
     if (currentPage < pages.length - 1) {
 
@@ -20,15 +46,20 @@ function nextPage() {
 
 function openCoupon() {
 
-    const envelope =
-        document.querySelector(".envelope");
+    const envelope = document.querySelector(".envelope");
 
-    envelope.classList.toggle("open");
+    if (envelope) {
+        envelope.classList.toggle("open");
+    }
 
 }
 
 
 function restart() {
+
+    if (pages.length === 0) {
+        return;
+    }
 
     pages[currentPage].classList.remove("active");
 
@@ -36,9 +67,10 @@ function restart() {
 
     pages[currentPage].classList.add("active");
 
-    const envelope =
-        document.querySelector(".envelope");
+    const envelope = document.querySelector(".envelope");
 
-    envelope.classList.remove("open");
+    if (envelope) {
+        envelope.classList.remove("open");
+    }
 
 }
